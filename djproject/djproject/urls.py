@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from reje import views
+from log import views as login
 
 urlpatterns = {
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
+    url(r'^reje/', views.reje),
+    url(r'^log/', login.logowanie)
 }
