@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from reje import views
 
-urlpatterns = {
+urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'/', views.index),
-}
+    url(r'/', views.index)
+]
