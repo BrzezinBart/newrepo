@@ -1,29 +1,16 @@
-from .forms import reje
-from django.views.generic.edit import FormView
-from django.http import HttpResponseRedirect
-import django.shortcuts
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.template.context_processors import csrf
+from .forms import reje1
 
-
-class rejestracja(FormView):
-    template_name = 'register.html'
-    form_class = reje
-    success_url = '/'
-
-def rejestracja1(request):
-    # if this is a POST request we need to process the form data
+def reje(request):
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = UserCreationForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            if form.is_valid():
-                user = User.objects.create_user(form.cleaned_data['username'], None, form.cleaned_data['password1'])
-                user.save()
-                return render_to_response('/')  # Redirect after POST
-            else:
-                form = UserCreationForm()  # An unbound form
-
-        return render_to_response('register.html', {
-            'form': form,
-        }, context_instance=RequestContext(request))
+        form1 = reje1(request.POST)
+        if form1.is_valid():
+            user = form1.save()  # save user to db
+            return redirect('succes')
+    else:
+        form1 = reje1()
+    c = dict(form=form1)
+    c.update(csrf(request))
+    return render_to_response("register.html", c)

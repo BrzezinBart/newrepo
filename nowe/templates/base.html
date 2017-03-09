@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+    body{
+    font-size: 14px;
+font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+color: #333;
+    }
+    #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+            overflow: hidden;
+    width: 28em;
+    min-width: 30px;
+    margin: 100px auto;
+}
+    #log {
+    background: #447e9b;
+    border: 1px solid #eaeaea;
+        height:30px;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 20px bottom;
+    color:white;
+    text-align:center;
+    }
+</style>
   <meta charset="utf-8">
-  <title>{% block title %}Logowanie{% endblock %}</title>
+  <title>{% block title %}STRONA{% endblock %}</title>
 </head>
 <body>
   <header>
-    <h1>Logowanie</h1>
+
+    <h1><center>STRONA</center></h1>
+  <hr>
     {% if user.is_authenticated %}
       Witaj {{ user.username }}!
-      <a href="{% url 'logout' %}">Wyloguj się</a>
+      <a href="{% url 'logout' %}">Wyloguj się</a>  <a href="{% url 'home' %}">Strona główna</a>
     {% else %}
-      <a href="{% url 'login' %}">Zaloguj się</a> &nbsp;<a href="{% url 'register' %}">Zarejestruj się</a>
+      <a href="{% url 'login' %}">Zaloguj się</a> &nbsp;<a href="{% url 'register' %}">Zarejestruj się</a>  <a href="{% url 'home' %}">Strona główna</a>
     {% endif %}
   </header>
   <hr>
-  <main>
+
+  <main> <div id="container">
     {% block content %}
+
     {% endblock %}
-  </main>
-  <hr>
+  </main></div
+
   <footer>
   </footer>
 </body>

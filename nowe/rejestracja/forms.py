@@ -1,9 +1,9 @@
 from django import forms
-import django.contrib.auth.models
-import django.contrib.auth.forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
-class reje(forms.ModelForm):
+class reje1(forms.ModelForm):
     """
     A form that creates a user, with no privileges, from the given username and
     password.
@@ -18,8 +18,11 @@ class reje(forms.ModelForm):
                                 help_text="Proszę wpisać ponownie hasło, w celu weryfikacji.")
 
     class Meta:
-        model = django.contrib.auth.models.User
+        model = User
         fields = ("username",)
+        help_texts = {
+            'username': None,
+        }
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
