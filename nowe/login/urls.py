@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
-    url(r'^register/$', views.Rejestracja, {'template_name': 'register.html'}, name='register'),
+    url(r'^register/$', views.rejestracja1, name='register'),
     url(r'^admin/', admin.site.urls),
 ]
