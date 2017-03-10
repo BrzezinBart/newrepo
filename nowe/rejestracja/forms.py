@@ -1,9 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 
 
-class reje1(forms.ModelForm):
+class reg_form(forms.ModelForm):
     """
     A form that creates a user, with no privileges, from the given username and
     password.
