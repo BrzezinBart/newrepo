@@ -1,6 +1,5 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
 *$py.class
 
 # C extensions
@@ -89,4 +88,7 @@ ENV/
 .ropeproject
 
 .DS_Store
-*.sqlite3
+.idea/dataSources.local.xml
+.idea/dataSources.xml
+rejestracja/migrations/0001_initial.py
+rejestracja/migrations/0002_auto_20170310_1102.py
