@@ -20,9 +20,7 @@ class reg_form(forms.ModelForm):
     class Meta:
         model = Usr
         fields = ("login",)
-        help_texts = {
-            'login': 'podaj no login gosciu',
-        }
+
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
