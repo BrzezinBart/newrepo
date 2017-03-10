@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from rejestracja.models import Usr
 
 
 class reg_form(forms.ModelForm):
@@ -17,10 +18,10 @@ class reg_form(forms.ModelForm):
                                 help_text="Proszę wpisać ponownie hasło, w celu weryfikacji.")
 
     class Meta:
-        model = User
-        fields = ("username",)
+        model = Usr
+        fields = ("login",)
         help_texts = {
-            'username': None,
+            'login': 'podaj no login gosciu',
         }
 
     def clean_password2(self):
