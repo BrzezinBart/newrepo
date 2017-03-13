@@ -2,19 +2,19 @@ from django.db import models
 from rejestracja.models import Usr
 
 # Create your models here.
-class Ankieta:
-    nazwa = models.CharField(unique=True, null=False)
-    data_zakonczenia = models.DateField(auto_now=False)
+class Ankieta_model(models.Model):
+    nazwa = models.CharField(unique=True, null=False, max_length=50)
+    data_z = models.DateField(auto_now=True)
 
-class Choice:
-    autor = models.CharField
-    nazwa = models.CharField(unique=True, null=False)
+class Choice(models.Model):
+    autor = models.CharField(max_length=50)
+    nazwa = models.CharField(unique=True, null=False, max_length=50)
     link = models.URLField(unique=True, null=True)
-    id_ankiety = models.foreignkey('Ankieta')
+    id_ankiety = models.ForeignKey('Ankieta_model')
 
-class Vote:
-    id_wyboru = models.foreignkey('Choice')
-    id_Usr = models.foreignkey('Usr')
+class Vote(models.Model):
+    id_wyboru = models.ForeignKey('Choice')
+    id_Usr = models.ForeignKey('rejestracja.Usr')
     data = models.DateField(auto_now=False)
 
 
