@@ -1,29 +1,20 @@
 from django.shortcuts import render, redirect, render_to_response
 from django.template.context_processors import csrf
-from ankieta.models import Ankieta_model
-from django.db.utils import IntegrityError
+from ankieta.models import AnkietaModel
 
-from ankieta.forms import Ankieta_form
+from ankieta.forms import AnkietaForm
 
 
-def surv_add(request):
+def survAdd(request):
     if request.method == 'POST':
-        Ankieta = Ankieta_form(request.POST)
-        if Ankieta.is_valid():
-            try:
-                nazwa = Ankieta.cleaned_data['nazwa']
-            except:
-                IntegrityError
-            data_z = Ankieta.cleaned_data['data_z']
-            Ankieta_add = Ankieta_model.objects.create(nazwa=nazwa, data_z=data_z)
+        ankieta = AnkietaForm(request.POST)
+        if ankieta.is_valid():
+            nazwa = ankieta.cleaned_data['nazwa']
+            data_z = ankieta.cleaned_data['data_z']
+            ankieta_add = AnkietaModel.objects.create(nazwa=nazwa, data_z=data_z)
             return redirect('succes')
     else:
-        Ankieta = Ankieta_form()
-    c = dict(form=Ankieta_form)
+        ankieta = AnkietaForm()
+    c = dict(form=AnkietaForm)
     c.update(csrf(request))
     return render_to_response("surv_add.html", c)
-
-
-#for ankieta in Ankieta_model.objects.all():
-#    print(ankieta.nazwa)
-
