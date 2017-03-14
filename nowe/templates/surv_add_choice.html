@@ -3,11 +3,11 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-  <div id="log">Dodaj ankiete</div>
+  <div id="log">Dodaj swoją opcję</div>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <center><button type="submit">Dodaj ankiete</button></center>
+    <center><button type="submit">Dodaj swoją opcję</button></center>
   </form>
   </div>
 {% endblock %}

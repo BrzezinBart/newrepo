@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rejestracja',
     'ankieta',
+    'vote',
+    'wybor'
 ]
 
 MIDDLEWARE_CLASSES = [
