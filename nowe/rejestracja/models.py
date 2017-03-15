@@ -6,4 +6,3 @@ class Usr(AbstractUser):
     username = models.EmailField(('Adres e-mail'), unique=True, validators=[EmailValidator])
     USERNAME_FIELD = 'username'
 
-# Create your models here.

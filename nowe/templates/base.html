@@ -50,9 +50,9 @@ color: #333;
   <hr>
     {% if user.is_authenticated %}
       Witaj {{ user.username }}!
-      <a href="{% url 'logout' %}">Wyloguj się</a>|<a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>
+      <a href="{% url 'logout' %}">Wyloguj się</a>|<a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>|<a href="{% url 'vote_add' %}">Zagłosuj</a>
     {% else %}
-          <a href="{% url 'login' %}">Zaloguj się</a>|<a href="{% url 'register' %}">Zarejestruj się </a>|<a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>
+          <a href="{% url 'login' %}">Zaloguj się</a>|<a href="{% url 'register' %}">Zarejestruj się </a>|<a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>|<a href="{% url 'vote_add' %}">Zagłosuj</a>
     {% endif %}
   </header>
   <hr>

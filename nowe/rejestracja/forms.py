@@ -1,13 +1,10 @@
 from django import forms
-from django.contrib.auth.models import User
 from rejestracja.models import Usr
 
 
 class reg_form(forms.ModelForm):
-    """
-    A form that creates a user, with no privileges, from the given username and
-    password.
-    """
+
+
     error_messages = {
         'password_mismatch': "Podane hasła różnią się od siebie, proszę spróbować ponownie."
     }

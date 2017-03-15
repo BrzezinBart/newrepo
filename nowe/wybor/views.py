@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import redirect, render_to_response
 from django.template.context_processors import csrf
-from ankieta.models import AnkietaModel
 from ankieta.models import Choice
 from wybor.forms import ChoiceForm
 

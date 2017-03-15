@@ -4,8 +4,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <h2>Home</h2>
-{%  if user.is_staff %}
-    <a href='admin'>Admin</a>
-    {% endif %}
+  <h2>Oddano głos !</h2>
+    <a href="{% url 'home' %}">Strona główna</a>
+    </div>
 {% endblock %}

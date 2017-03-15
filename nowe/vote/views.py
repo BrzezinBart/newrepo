@@ -1,11 +1,7 @@
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import redirect, render_to_response
 from django.template.context_processors import csrf
-from ankieta.models import AnkietaModel
 from ankieta.models import Vote
 from vote.forms import VoteForm
-from rejestracja.models import Usr
-
-
 
 def voteAdd(request):
     if request.method == 'POST':
@@ -14,7 +10,7 @@ def voteAdd(request):
             wybor = vote.cleaned_data['wybor']
             user_id = request.user
             vote_add = Vote.objects.create(wybor=wybor, Usr=user_id)
-            return redirect('succes_a_d')
+            return redirect('succes_v_a')
         else:
             print(vote.errors)
             print(vote.cleaned_data)

@@ -1,9 +1,5 @@
 from django.db import models
 
-
-from rejestracja.models import Usr
-
-# Create your models here.
 class AnkietaModel(models.Model):
     nazwa = models.CharField(unique=True, null=False, max_length=50)
     data_z = models.DateField(auto_now=True)
