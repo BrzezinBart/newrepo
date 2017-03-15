@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^surv_add/', survAdd, name='surv_add'),
     url(r'^surv_succ/', survAdd, name='surv_succ'),
     url(r'^succes_a/', TemplateView.as_view(template_name='succes_a.html'), name='succes_a'),
-    url(r'^succes_a_d/', TemplateView.as_view(template_name='succes_a_d.html'), name='succes_a_d'),
-    url(r'^vote', voteAdd, name='vote_add'),
+    url(r'^succes_a_d/', TemplateView.as_view(template_name='succes_a_c.html'), name='succes_a_d'),
+    url(r'^vote_add', voteAdd, name='vote_add'),
     url(r'^surv_add_choice/', choiceAdd, name='surv_add_choice'),
 ]

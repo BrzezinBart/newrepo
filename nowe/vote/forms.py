@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.forms import ModelChoiceField
-from ankieta.models import Choice
+from django.forms import ModelChoiceField, ModelChoiceField
+from ankieta.models import Choice, AnkietaModel
 from django import forms
 
 from rejestracja.models import Usr
+from wybor.forms import MyModelChoiceField
 
 
 class mojModelChoiceField(ModelChoiceField):
@@ -15,6 +16,6 @@ class Meta:
     fields = ('username')
 
 class VoteForm(forms.Form):
-    wybor = mojModelChoiceField(queryset=Choice.objects.all())
-    username = forms.CharField()
+    wybor = mojModelChoiceField(queryset=Choice.objects.all(), widget=forms.RadioSelect)
     data_z = forms.DateField()
+

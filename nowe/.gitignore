@@ -88,6 +88,9 @@ ENV/
 .ropeproject
 
 .DS_Store
-.idea/
+/.idea
 rejestracja/migrations/0001_initial.py
 rejestracja/migrations/0002_auto_20170310_1102.py
+.idea/dataSources/
+.idea
+i
