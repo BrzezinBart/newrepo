@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 <div id="container">
-{% block title %}Login{% endblock %}
+{% block title %}Zagłosuj{% endblock %}
 
 {% block content %}
   <div id="log">Zagłosuj</div>
@@ -9,5 +9,6 @@
     {{ form.as_p }}
     <center><button type="submit">Głosuj !</button></center>
   </form>
+   {% now 'Y-m-d' %}
   </div>
 {% endblock %}

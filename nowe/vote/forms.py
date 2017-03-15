@@ -17,5 +17,4 @@ class Meta:
 
 class VoteForm(forms.Form):
     wybor = mojModelChoiceField(queryset=Choice.objects.all(), widget=forms.RadioSelect)
-    data_z = forms.DateField()
 

@@ -17,4 +17,4 @@ class Choice(models.Model):
 class Vote(models.Model):
     wybor = models.ForeignKey('Choice')
     Usr = models.ForeignKey('rejestracja.Usr')
-    data = models.DateField(auto_now=False)
+    data = models.DateField(auto_now=True)

@@ -13,8 +13,7 @@ def voteAdd(request):
         if vote.is_valid():
             wybor = vote.cleaned_data['wybor']
             user_id = request.user
-            data = vote.cleaned_data['data_z']
-            vote_add = Vote.objects.create(wybor=wybor, Usr=user_id , data=data)
+            vote_add = Vote.objects.create(wybor=wybor, Usr=user_id)
             return redirect('succes_a_d')
         else:
             print(vote.errors)
