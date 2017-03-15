@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rejestracja',
+    'ankieta',
+    'vote',
+    'wybor'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -121,3 +125,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home'
+AUTH_USER_MODEL = 'rejestracja.Usr'
