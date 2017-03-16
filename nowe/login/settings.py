@@ -126,3 +126,11 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = 'rejestracja.Usr'
+
+STATICFILES_DIRS = [
+    "static","/pliki/",
+]
+STATICFILES_FINDERS=[
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]

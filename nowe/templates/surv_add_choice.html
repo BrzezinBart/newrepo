@@ -4,6 +4,14 @@
 
 {% block content %}
   <div id="log">Dodaj swoją opcję</div>
+        Opcje :
+    <ul>
+        {% for x in lista %}
+            <li><a href="{% url 'vote_add' %}"> {{ x.nazwa }}</a></li>
+    {% endfor %}
+    </ul>
+    <hr>
+    Dodaj nową opcję do ankiety:
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

@@ -2,7 +2,9 @@ from django.shortcuts import redirect, render_to_response
 from django.template.context_processors import csrf
 from ankieta.models import Choice
 from wybor.forms import ChoiceForm
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/login/')
 def choiceAdd(request):
     if request.method == 'POST':
         choice = ChoiceForm(request.POST)
@@ -17,4 +19,5 @@ def choiceAdd(request):
         ankieta = ChoiceForm()
     c = dict(form=ChoiceForm)
     c.update(csrf(request))
+    c.update({'lista':Choice.objects.all()})
     return render_to_response("surv_add_choice.html", c)

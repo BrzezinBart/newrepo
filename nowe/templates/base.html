@@ -1,45 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-    body{
-    font-size: 14px;
-font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-color: #333;
-    }
-    #container {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
-            overflow: hidden;
-    width: 28em;
-    min-width: 30px;
-    margin: 100px auto;
-}
-    #log {
-        background: #447e9b;
-        border: 1px solid #eaeaea;
-        height: 30px;
-        border-radius: 4px;
-        overflow: hidden;
-        width: 28em;
-        min-width: 300px;
-        margin: 20px bottom;
-        color: white;
-        text-align: center;
-    }
-    a:visited{
-        color: dodgerblue;
-        text-decoration: none;
-        }
-    a.underlined {
-   text-decoration:underline;
-}
-    a
-{
-   text-decoration:none;
-}
-</style>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pliki/1.css' %}" />
   <meta charset="utf-8">
   <title>{% block title %}STRONA{% endblock %}</title>
 </head>
@@ -52,7 +15,7 @@ color: #333;
       Witaj {{ user.username }}!
       <a href="{% url 'logout' %}">Wyloguj się</a>|<a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>|<a href="{% url 'vote_add' %}">Zagłosuj</a>
     {% else %}
-          <a href="{% url 'login' %}">Zaloguj się</a>|<a href="{% url 'register' %}">Zarejestruj się </a>|<a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>|<a href="{% url 'vote_add' %}">Zagłosuj</a>
+         <a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>|<a href="{% url 'vote_add' %}">Zagłosuj</a>
     {% endif %}
   </header>
   <hr>
@@ -61,7 +24,7 @@ color: #333;
     {% block content %}
 
     {% endblock %}
-  </main></div
+  </div></main>
 
   <footer>
   </footer>
