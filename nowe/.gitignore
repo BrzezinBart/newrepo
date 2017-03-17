@@ -89,6 +89,5 @@ ENV/
 
 .DS_Store
 /.idea
-.idea/dataSources/
-.idea
 nowe/.idea
+

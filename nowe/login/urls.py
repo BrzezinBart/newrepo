@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^vote_add', voteAdd, name='vote_add'),
     url(r'^surv_add_choice/', choiceAdd, name='surv_add_choice'),
     url(r'^succes_v_a/', TemplateView.as_view(template_name='succes_v_a.html'), name='succes_v_a')
+
 ]

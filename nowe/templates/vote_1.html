@@ -9,16 +9,6 @@
     {{ voteForm.as_p }}
     <center><button type="submit">Głosuj !</button></center>
   </form>
-    <center>
-    <form>
-    {% for x in lista %}
-    <p class="xd">{{ x.nazwa }}</p>
-
-    {% for c in lista1 %}{% if x.id == c.ankieta_id %}
-        <p class="xd1"><input type="radio" name="wybor" value="{{ c.nazwa }}">{{ c.nazwa }}<br></p>
-
-{% endif %}{% endfor %}
-    {% endfor %}</form></center>
    {% now 'Y-m-d' %}
   </div>
 {% endblock %}

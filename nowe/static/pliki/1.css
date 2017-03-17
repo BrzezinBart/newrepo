@@ -35,3 +35,18 @@ color: #333;
 {
    text-decoration:none;
 }
+
+    ul{
+        list-style-type: none;
+    }
+    ol{
+        list-style-type: none;
+    }
+    .xd{
+        font-weight: bold;
+        text-decoration: underline;
+
+    }
+    .xd1{
+        text-justify: auto;
+    }
