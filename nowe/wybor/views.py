@@ -1,6 +1,6 @@
-from django.shortcuts import redirect, render_to_response
+from django.shortcuts import redirect, render_to_response, render
 from django.template.context_processors import csrf
-from ankieta.models import Choice
+from ankieta.models import Choice, AnkietaModel
 from wybor.forms import ChoiceForm
 from django.contrib.auth.decorators import login_required
 
@@ -19,5 +19,6 @@ def choiceAdd(request):
         ankieta = ChoiceForm()
     c = dict(form=ChoiceForm)
     c.update(csrf(request))
+    c.update({'lista1':AnkietaModel.objects.all()})
     c.update({'lista':Choice.objects.all()})
-    return render_to_response("surv_add_choice.html", c)
+    return render(request,"surv_add_choice.html", c)

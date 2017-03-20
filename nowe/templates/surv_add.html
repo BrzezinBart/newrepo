@@ -9,7 +9,7 @@
     Ankiety :
     <ul>
         {% for x in lista %}
-            <li><a href="{% url 'vote_add' %}"> {{ x.nazwa }}</a></li>
+            <li><a href="{% url 'home' %}{{ x.id }}/vote_add"> {{ x.nazwa }}</a></li>
     {% endfor %}
     </ul>
     <hr>
