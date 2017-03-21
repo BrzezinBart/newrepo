@@ -7,17 +7,21 @@
   <title>{% block title %}STRONA{% endblock %}</title>
 </head>
 <body>
-  <header>
 
-    <h1><center>Plex</center></h1>
+
+    <h1><center>
+        <div id="plex">
+             Plex
+        </div>
+    </center></h1>
   <hr>
     {% if user.is_authenticated %}
-      Witaj {{ user.username }}!
-      <a href="{% url 'logout' %}">Wyloguj się</a>|<a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>
+      Witaj <u>{{ user.username }}!</u>
+      <a href="{% url 'logout' %}">Wyloguj się</a> | <a href="{% url 'home' %}">Strona główna</a> | <a href="{% url 'surv_add' %}"> Dodaj Ankietę</a> | <a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>
     {% else %}
-         <a href="{% url 'home' %}">Strona główna</a>|<a href="{% url 'surv_add' %}"> Dodaj Ankietę</a>|<a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>
+         <a href="{% url 'home' %}">Strona główna</a> | <a href="{% url 'surv_add' %}"> Dodaj Ankietę</a> | <a href="{% url 'surv_add_choice' %}">Dodaj swój wybór</a>
     {% endif %}
-  </header>
+
   <hr>
 
   <main> <div id="container">

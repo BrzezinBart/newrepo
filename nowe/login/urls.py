@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from rejestracja.views import reg_view
 from ankieta.views import survAdd
 from wybor.views import choiceAdd
-from vote.views import voteAdd
+from vote.views import voteAdd, countVotes
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^vote_add', voteAdd, name='vote_add'),
     url(r'^surv_add_choice/', choiceAdd, name='surv_add_choice'),
     url(r'^succes_v_a/', TemplateView.as_view(template_name='succes_v_a.html'), name='succes_v_a'),
-    url(r'^(?P<choice_id>[0-9]+)', voteAdd, name='voteAdd')
+    url(r'^(?P<choice_id>[0-9]+)', voteAdd, name='voteAdd'),
+    url(r'^votes/', countVotes, name='countVotes')
 
 ]

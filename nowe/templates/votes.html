@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Głosy{% endblock %}
+
+{% block content %}
+{% for choice in choices %}
+    <p>{{ choice.nazwa }}:</p><br>
+    {% for vote in votes %}
+        {% if choice.id == vote.wybor %}
+           {{  xd|add:"1" }}
+        {% endif %}
+    {% endfor %}
+    {% endfor %}
+
+
+{% endblock %}

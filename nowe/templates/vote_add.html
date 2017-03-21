@@ -15,9 +15,11 @@
     <center>
     {% for c in lista1 %}
         {% if c.ankieta_id == cid %}
-            <p class="xd1"><input type="radio" name="wybor" value="{{ c.id }}">{{ c.nazwa }}<br></p>
+            <p class="xd1"><input type="radio" name="wybor" value="{{ c.id }}">{{ c.nazwa }}
+    <br></p>
         {% endif %}
     {% endfor %}
+    {% if wybor in votes %}  {% endif %}
         <center><button type="submit">Głosuj !</button></center></form></center>
    {% now 'Y-m-d' %}
   </div>

@@ -50,3 +50,8 @@ color: #333;
     .xd1{
         text-justify: auto;
     }
+    #plex{
+        border-style:double;
+        width: 100%;
+        height: 90px;
+    }
