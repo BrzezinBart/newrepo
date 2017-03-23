@@ -3,7 +3,7 @@
 {% block title %}Dodaj swoją opcję{% endblock %}
 
 {% block content %}
-  <div id="log">Dodaj swoją opcję</div>
+    <div id="log"><p class="xd">Dodaj swoją opcję</p></div>
         Opcje :
     <ul>
         {% for x in lista %}
@@ -15,7 +15,7 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <center><button type="submit">Dodaj swoją opcję</button></center>
+    <center><button type="submit">Dodaj</button></center>
   </form>
   </div>
 {% endblock %}

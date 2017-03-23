@@ -4,14 +4,12 @@
 {% block title %}Głosy{% endblock %}
 
 {% block content %}
-{% for choice in choices %}
-    <p>{{ choice.nazwa }}:</p><br>
-    {% for vote in votes %}
-        {% if choice.id == vote.wybor %}
-           {{  xd|add:"1" }}
-        {% endif %}
+    <p class="p2">WYNIKI</p>
+    {% for choice in choices %}
+{{ choice.nazwa }}:<br>
+        {{ choice.vote_set.count }}<br>
     {% endfor %}
-    {% endfor %}
-
+<hr>
+     <a href="{% url 'surv_add' %}" class="button1">Wróć do głosowania</a>
 
 {% endblock %}

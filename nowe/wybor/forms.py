@@ -4,11 +4,10 @@ from ankieta.models import AnkietaModel
 
 class MyModelChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
-        return "Ankieta : %s" % obj.nazwa
+        return "%s" % obj.nazwa
 
 class ChoiceForm(forms.Form):
-    ankieta = MyModelChoiceField(queryset=AnkietaModel.objects.all())
+    ankieta = MyModelChoiceField(queryset=AnkietaModel.objects.all(), empty_label='Wybierz:')
     nazwa = forms.CharField()
-    autor = forms.CharField()
-    link = forms.URLField()
+    link = forms.URLField(required = False)
 

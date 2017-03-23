@@ -6,10 +6,10 @@ class ChoiceAdmin(admin.ModelAdmin):
     list_display =('nazwa','autor','ankieta')
 
 class AnkietaAdmin(admin.ModelAdmin):
-    list_display =('nazwa', 'data_z')
+    list_display =('nazwa', 'data_z', 'autor')
 
 class VoteAdmin(admin.ModelAdmin):
-    list_display =('wybor', 'Usr', 'data')
+    list_display =('wybor', 'Usr')
 
 class UsrAdmin(admin.ModelAdmin):
     list_display = ('username','date_joined','is_active','is_staff','is_superuser')

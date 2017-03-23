@@ -11,7 +11,7 @@ def choiceAdd(request):
         if choice.is_valid():
             ankieta = choice.cleaned_data['ankieta']
             nazwa = choice.cleaned_data['nazwa']
-            autor = choice.cleaned_data['autor']
+            autor = request.user
             link = choice.cleaned_data['link']
             choice_add = Choice.objects.create(nazwa=nazwa, autor=autor, link=link, ankieta=ankieta)
             return redirect('succes_a_d')

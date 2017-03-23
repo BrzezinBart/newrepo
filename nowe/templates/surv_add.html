@@ -3,14 +3,17 @@
 {% block title %}Dodaj ankiete{% endblock %}
 
 {% block content %}
-  <div id="log">Dodaj ankiete
+  <div id="log"><p class="xd"> Dodaj ankiete</p>
   </div>
 
     Ankiety :
     <ul>
         {% for x in lista %}
-            <li><a href="{% url 'home' %}{{ x.id }}/vote_add"> {{ x.nazwa }}</a></li>
-    {% endfor %}
+            <li>{% if now|date:'Y-m-d' < x.data_w|date:'Y-m-d'  %}<a class="link_ankieta" href="{% url 'home' %}{{ x.id }}/vote_add"> {{ x.nazwa }}</a> Wygasa : {{ x.data_w|date:'Y-m-d' }}
+            {% else %}{{ x.nazwa }}<font class="warn1"> wygasła </font>
+            {% endif %}
+            </li><br>
+        {% endfor %}
     </ul>
     <hr>
     Dodaj nową ankiete:
@@ -19,6 +22,8 @@
     {{ form.as_p }}
     <center><button type="submit">Dodaj ankiete</button></center>
   </form>
+
+
 
 
 
