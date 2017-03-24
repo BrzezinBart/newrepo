@@ -7,7 +7,7 @@
   {% for v in lista %}
     {% if v.id == cid %}
         <p class="xd">{{ v.nazwa }}</p>
-  {% endif %}
+    {% endif %}
   {% endfor %}
   </div>
   <form method="POST" action='succes_v_a.html'>
@@ -16,14 +16,14 @@
     {% if error %}
         <p class="warn">{{ error }}!</p>
     {% endif %}
-    {% for c in lista1 %}
-        {% if c.ankieta_id == cid %}
-            <p class="xd1"><input type="radio" name="wybor" value="{{ c.id }}">{{ c.nazwa }}<br></p>
-        {% endif %}
-    {% endfor %}
-        <center><button type="submit" class ="button1">Głosuj !</button><br><br><a href="{% url 'countVotes' %}" class ="button1">Wyniki</a><a href="{% url 'surv_add_choice' %}"class ="button1">Dodaj własną opcje</a><br></form></center>
+        {% for c in lista1 %}
+            {% if c.ankieta_id == cid %}
+                <p class="xd1"><input type="radio" name="wybor" value="{{ c.id }}">{{ c.nazwa }}<br></p>
+            {% endif %}
+        {% endfor %}
+        <center><button type="submit" class ="button1">Głosuj !</button><br><br><a href="{% url 'surv_add_choice' %}"class ="button1">Dodaj własną opcje</a><br></center></form></center>
 
 
-   {% now 'Y-m-d' %}
+   <br>{% now 'Y-m-d' %}
   </div>
 {% endblock %}

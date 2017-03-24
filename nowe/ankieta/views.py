@@ -16,13 +16,17 @@ def survAdd(request):
             nazwa = ankieta.cleaned_data['nazwa']
             autor = request.user
             data_w = ankieta.cleaned_data['data_w']
-            date = datetime.today()+timedelta(days=data_w)
+            if data_w is None:
+                date = datetime.today()+timedelta(days=7)
+            else:
+                date = datetime.today() + timedelta(days=data_w)
             ankieta_add = AnkietaModel.objects.create(nazwa=nazwa, autor=autor, data_w=date)
 
             return redirect('succes_a')
     else:
         ankieta = AnkietaForm()
     c = dict(form=AnkietaForm)
+    c.update({'dzis':datetime.today()})
     c.update(csrf(request))
     c.update({'lista':AnkietaModel.objects.all()})
     return render(request,'surv_add.html', c)
