@@ -7,7 +7,9 @@
         Opcje :
     <ul>
         {% for x in lista %}
+            {% if x.ankieta_id == surv_id %}
             <li>{{ x.nazwa }}</li>
+            {% endif %}
     {% endfor %}
     </ul>
     <hr>

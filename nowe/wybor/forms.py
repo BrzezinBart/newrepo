@@ -7,7 +7,6 @@ class MyModelChoiceField(ModelChoiceField):
         return "%s" % obj.nazwa
 
 class ChoiceForm(forms.Form):
-    ankieta = MyModelChoiceField(queryset=AnkietaModel.objects.all(), empty_label='Wybierz:')
     nazwa = forms.CharField()
     link = forms.URLField(required = False)
 

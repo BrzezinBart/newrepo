@@ -17,7 +17,7 @@ def survAdd(request):
             autor = request.user
             data_w = ankieta.cleaned_data['data_w']
             if data_w is None:
-                date = datetime.today()+timedelta(days=7)
+                date = datetime.today() + timedelta(days=7)
             else:
                 date = datetime.today() + timedelta(days=data_w)
             ankieta_add = AnkietaModel.objects.create(nazwa=nazwa, autor=autor, data_w=date)

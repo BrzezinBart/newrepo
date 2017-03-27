@@ -1,3 +1,4 @@
+from datetime import datetime, time, timedelta
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import redirect, render_to_response, render, get_object_or_404
@@ -35,7 +36,10 @@ def voteAdd(request,choice_id):
 def countVotes(request):
 
     choices=Choice.objects.all()
+    surveys=AnkietaModel.objects.all()
     x={'choices':choices}
+    x.update({'survs':surveys})
+    x.update({'dzis':datetime.today()})
     return render(request, template_name='votes.html', context=x)
 
 
