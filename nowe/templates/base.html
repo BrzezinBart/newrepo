@@ -2,6 +2,13 @@
 <html>
 <head>
 {% load static %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <link rel="stylesheet" type="text/css" href="{% static 'pliki/1.css' %}" />
   <meta charset="utf-8">
   <title>{% block title %}STRONA{% endblock %}</title>
@@ -16,10 +23,9 @@
     </center></h1>
   <hr>
     {% if user.is_authenticated %}
-      <p class="button2"> Witaj <u>{{ user.username }}!</u></p>
-      <a href="{% url 'logout' %}" class="button2">Wyloguj się</a><a href="{% url 'home' %}"class="button2">Strona główna</a><a href="{% url 'surv_add' %}"class="button2">Ankiety</a>
+      <p class="button2"> Witaj <u>{{ user.username }}!</u></p><a href="{% url 'logout' %}" class="button2">Wyloguj się</a><a href="{% url 'surv_add' %}"class="button2">Ankiety</a>
     {% else %}
-         <a href="{% url 'home' %}" class="button2">Strona główna</a><a href="{% url 'surv_add' %}" class="button2">Ankiety</a>
+         <a href="{% url 'login' %}" class="button2">Login</a><a href="{% url 'surv_add' %}" class="button2">Ankiety</a>
     {% endif %}
 
   <hr>
@@ -33,6 +39,5 @@
   <footer>
 
   </footer>
- Dziś :{% now 'd/m/Y' %}
 </body>
 </html>

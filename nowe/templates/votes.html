@@ -6,18 +6,18 @@
 {% block content %}
     <p class="p2">WYNIKI</p>
     {% for surv in survs %}
-        {% if dzis|date:'Y-m-d' < surv.data_w|date:'Y-m-d'  %}
-            <b>{{ surv.nazwa }}<br></b>
+
                 {% for choice in choices %}
         {% if surv.id == choice.ankieta_id %}
             {{ choice.nazwa }}:<br>
             {{ choice.vote_set.count }}<br>
-        {% endif %}
-                {% endfor %}
+
+
         {% endif %}
 
     {% endfor %}
+    {% endfor %}
 <hr>
-     <a href="{% url 'surv_add' %}" class="button1">Wróć do głosowania</a>
+     <a href="{% url 'surv_add' %}" class="button1">Ankiety</a>
 
 {% endblock %}

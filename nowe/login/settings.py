@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rejestracja',
     'ankieta',
     'vote',
-    'wybor'
+    'wybor',
+    'chartjs'
 ]
 
 MIDDLEWARE_CLASSES = [
