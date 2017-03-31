@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<div id="container">
+{% block title %}Dodaj swoją opcję{% endblock %}
+
+{% block content %}
+    <div id="log"><p class="xd">Dodaj swoją opcję</p></div>
+        Opcje :
+    <ul>
+        {% for x in lista %}
+            {% if x.ankieta_id == surv_id %}
+            <li>{{ x.nazwa }}</li>
+            {% endif %}
+    {% endfor %}
+    </ul>
+    <hr>
+    Dodaj nową opcję do ankiety:
+    {% if error %}
+        <p class="warn">{{ error }}</p>
+    {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <center><button type="submit">Dodaj</button></center>
+  </form>
+  </div>
+{% endblock %}

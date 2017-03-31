@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<div id="container">
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div id="log"><p class="xd">Zaloguj się</p></div>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <center><button type="submit">Zaloguj</button></center>
+  </form>
+    <hr>
+    Nie masz konta ? <a href="{% url 'register' %}" >Zarejestruj się </a>
+  </div>
+
+{% endblock %}

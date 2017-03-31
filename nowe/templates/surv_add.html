@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+<div id="container" xmlns="http://www.w3.org/1999/html">
+{% block title %}Dodaj ankiete{% endblock %}
+
+{% block content %}
+  <div id="log"><p class="xd"> Dodaj ankiete</p>
+  </div>
+
+    Ankiety :
+    <ul>
+        {% for x in lista %}
+            <li>{% if dzis|date:'Y-m-d HH:i' < x.data_w|date:'Y-m-d HH:i'  %}<a class="link_ankieta" href="{% url 'voteAdd' x.id %}" > {{ x.nazwa }}</a> - Wygasa : {{ x.data_w|date:'Y-m-d H:i' }}
+            {% else %}<a class="link_ankieta" href="{% url 'voteAdd' x.id %}" > {{ x.nazwa }}</a> -<font class="warn1"> Wygasła </font>
+            {% endif %}
+            </li><br>
+        {% endfor %}
+
+    </ul>
+    <hr>
+        {% if error %}
+    <p class="warn">{{ error }}</p>
+    {% endif %}
+    Dodaj nową ankiete:
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <b>Data zakończenia:</b> <input type="textinput" name="data_w" value="Podaj Datę">
+
+<script type="text/javascript">
+$(function() {
+    $('input[name="data_w"]').daterangepicker({
+        singleDatePicker: true,
+        timePicker24Hour:true,
+        timePicker:true,
+        locale: {
+            format: 'YYYY-MM-DD HH:mm'
+        }
+    });
+});
+</script>
+    <center><button type="submit">Dodaj ankiete</button></center>
+        <hr>
+
+
+
+  </form>
+
+
+
+
+
+
+</div>
+{% endblock %}
