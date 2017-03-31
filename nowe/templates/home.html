@@ -1,12 +1,17 @@
-
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <h2>Home</h2>
+  <h2>{%  if user.is_authenticated %}
+<a href="{% url 'logout' %}" class="w">Wyloguj się</a>
+      {% else %}
+      <center><a href="{% url 'login' %}" class="w">Zaloguj się</a><hr><a href="{% url 'register' %}" class="w">Zarejestruj się</a></center>
+      {% endif %}
+  </h2>
 {%  if user.is_staff %}
-    <a href='admin'>Admin</a>
+    <a href='admin'class="w">Admin</a>
     {% endif %}
+
 {% endblock %}

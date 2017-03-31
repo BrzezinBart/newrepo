@@ -1,3 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.core.validators import EmailValidator
 
-# Create your models here.
+class Usr(AbstractUser):
+    username = models.EmailField(('Adres e-mail'), unique=True, validators=[EmailValidator])
+    USERNAME_FIELD = 'username'
+

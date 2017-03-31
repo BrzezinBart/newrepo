@@ -1,12 +1,10 @@
 from django import forms
-from django.contrib.auth.models import User
+from rejestracja.models import Usr
 
 
 class reg_form(forms.ModelForm):
-    """
-    A form that creates a user, with no privileges, from the given username and
-    password.
-    """
+
+
     error_messages = {
         'password_mismatch': "Podane hasła różnią się od siebie, proszę spróbować ponownie."
     }
@@ -14,14 +12,12 @@ class reg_form(forms.ModelForm):
                                 widget=forms.PasswordInput)
     password2 = forms.CharField(label="Potwierdzenie",
                                 widget=forms.PasswordInput,
-                                help_text="Proszę wpisać ponownie hasło, w celu weryfikacji.")
+                                help_text="<br>Proszę wpisać hasło ponownie, w celu weryfikacji.")
 
     class Meta:
-        model = User
+        model = Usr
         fields = ("username",)
-        help_texts = {
-            'username': None,
-        }
+
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")

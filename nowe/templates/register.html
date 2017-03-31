@@ -3,7 +3,7 @@
 {% block title %}Rejestracja{% endblock %}
 
 {% block content %}
-    <div id="log">Rejestracja</div>
+    <div id="log"><p class="xd">Rejestracja</p></div>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

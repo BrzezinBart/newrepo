@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+<div id="container">
+{% block title %}Zagłosuj{% endblock %}
+
+{% block content %}
+  <div id="log">
+  {% for v in lista %}
+
+    {% if v.id == cid %}
+        <p class="xd">{{ v.nazwa }}</p>
+    {% endif %}
+  {% endfor %}
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+    <center>
+
+    {% if error %}
+        <p class="warn">{{ error }}!</p>
+    {% endif %}
+
+    {% if dzis|date:'Y-m-d H:i' < a.data_w|date:'Y-m-d H:i' %}
+
+        {% for c in lista1 %}
+
+            {% if c.ankieta_id == cid %}
+                <p class="xd1"><input type="checkbox" name="wybor1" value="{{ c.id }}">{{ c.nazwa }}
+                    {% if c.link %}
+                        | <a href="{{ c.link }}">Link</a>
+                    {% endif %}<br></p>
+            {% endif %}
+
+        {% endfor %}
+        {% if lista1|length > 0 %}
+            <center><button type="submit" class ="button1">Głosuj</button><br><br>
+        {% endif %}
+    <a href="{% url 'surv_add_choice' cid %}" class ="button1">Dodaj własną opcje</a><br></center></form></center>
+            <a href="{% url 'countVotes' cid %}" class ="button1" >Wyniki</a>
+
+            {% elif dzis|date:'Y-m-d H:i' == a.data_w|date:'Y-m-d H:i' %}
+
+        {% for c in lista1 %}
+
+            {% if c.ankieta_id == cid %}
+                <p class="xd1"><input type="radio" name="wybor" value="{{ c.id }}">{{ c.nazwa }} {% if c.link %}| <a href="{{ c.link }}">Link</a>{% endif %}<br></p>
+            {% endif %}
+
+        {% endfor %}
+        {% if lista1|length > 0 %}
+            <center><button type="submit" class ="button1">Głosuj</button><br><br>
+        {% endif %}
+    <a href="{% url 'surv_add_choice' cid %}" class ="button1">Dodaj własną opcje</a><br></center></form></center>
+            <a href="{% url 'countVotes' cid %}" class ="button1" >Wyniki</a>
+
+    {% else %}
+    <a href="{% url 'countVotes' cid %}" class ="button1" >Wyniki</a>
+    {% endif %}
+
+
+
+
+
+
+   <br>{% now 'Y-m-d' %}
+  </div>
+{% endblock %}
