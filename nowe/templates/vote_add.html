@@ -19,12 +19,15 @@
         <p class="warn">{{ error }}!</p>
     {% endif %}
 
-    {% if dzis|date:'Y-m-d' < a.data_w|date:'Y-m-d' %}
+    {% if dzis|date:'Y-m-d H:i' < a.data_w|date:'Y-m-d H:i' %}
 
         {% for c in lista1 %}
 
             {% if c.ankieta_id == cid %}
-                <p class="xd1"><input type="radio" name="wybor" value="{{ c.id }}">{{ c.nazwa }} | <a href="{{ c.link }}">Link</a><br></p>
+                <p class="xd1"><input type="checkbox" name="wybor1" value="{{ c.id }}">{{ c.nazwa }}
+                    {% if c.link %}
+                        | <a href="{{ c.link }}">Link</a>
+                    {% endif %}<br></p>
             {% endif %}
 
         {% endfor %}
@@ -34,7 +37,7 @@
     <a href="{% url 'surv_add_choice' cid %}" class ="button1">Dodaj własną opcje</a><br></center></form></center>
             <a href="{% url 'countVotes' cid %}" class ="button1" >Wyniki</a>
 
-            {% elif dzis|date:'Y-m-d' == a.data_w|date:'Y-m-d' %}
+            {% elif dzis|date:'Y-m-d H:i' == a.data_w|date:'Y-m-d H:i' %}
 
         {% for c in lista1 %}
 

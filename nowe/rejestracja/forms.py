@@ -12,7 +12,7 @@ class reg_form(forms.ModelForm):
                                 widget=forms.PasswordInput)
     password2 = forms.CharField(label="Potwierdzenie",
                                 widget=forms.PasswordInput,
-                                help_text="Proszę wpisać ponownie hasło, w celu weryfikacji.")
+                                help_text="<br>Proszę wpisać hasło ponownie, w celu weryfikacji.")
 
     class Meta:
         model = Usr

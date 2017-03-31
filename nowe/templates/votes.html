@@ -6,16 +6,15 @@
 {% block content %}
     <p class="p2">WYNIKI</p>
     {% for surv in survs %}
-
-                {% for choice in choices %}
-        {% if surv.id == choice.ankieta_id %}
-            {{ choice.nazwa }}:<br>
-            {{ choice.vote_set.count }}<br>
-
-
-        {% endif %}
-
-    {% endfor %}
+        {% for choice in choices %}
+            {% if surv.id == choice.ankieta_id %}
+                {{ choice.nazwa }}:
+                    {% if choice.link %}
+                        <a href="{{ choice.link }}">Link</a>
+                    {% endif %}<br>
+                {{ choice.vote_set.count }}<br>
+            {% endif %}
+        {% endfor %}
     {% endfor %}
 <hr>
      <a href="{% url 'surv_add' %}" class="button1">Ankiety</a>

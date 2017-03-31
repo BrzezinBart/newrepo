@@ -12,13 +12,14 @@ from django.contrib.auth.decorators import login_required
 def voteAdd(request,choice_id):
     error = None
     if request.method == 'POST':
-        selected_option = request.POST.get('wybor')
+        selected_option = request.POST.getlist('wybor1')
         if selected_option is None:
             HttpResponseBadRequest('Nie istnieje')
-        option = get_object_or_404(Choice, pk=int(selected_option))
         user_id = request.user
         try:
-            vote_add = Vote.objects.create(wybor=option, Usr=user_id)
+            for item in selected_option:
+                option = get_object_or_404(Choice, pk=int(item))
+                vote_add = Vote.objects.create(wybor_id=int(item), Usr=user_id)
         except IntegrityError:
             error = "Nie wolno głosować dwa razy na to samo"
         else:

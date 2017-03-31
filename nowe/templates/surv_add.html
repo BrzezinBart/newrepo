@@ -11,7 +11,7 @@
     Ankiety :
     <ul>
         {% for x in lista %}
-            <li>{% if dzis|date:'Y-m-d h:mm' < x.data_w|date:'Y-m-d h:mm'  %}<a class="link_ankieta" href="{% url 'voteAdd' x.id %}" > {{ x.nazwa }}</a> - Wygasa : {{ x.data_w|date:'Y-m-d h:m' }}
+            <li>{% if dzis|date:'Y-m-d HH:i' < x.data_w|date:'Y-m-d HH:i'  %}<a class="link_ankieta" href="{% url 'voteAdd' x.id %}" > {{ x.nazwa }}</a> - Wygasa : {{ x.data_w|date:'Y-m-d H:i' }}
             {% else %}<a class="link_ankieta" href="{% url 'voteAdd' x.id %}" > {{ x.nazwa }}</a> -<font class="warn1"> Wygasła </font>
             {% endif %}
             </li><br>
@@ -32,9 +32,10 @@
 $(function() {
     $('input[name="data_w"]').daterangepicker({
         singleDatePicker: true,
-        showDropdowns: true,
+        timePicker24Hour:true,
+        timePicker:true,
         locale: {
-            format: 'YYYY-MM-DD h:mm'
+            format: 'YYYY-MM-DD HH:mm'
         }
     });
 });
